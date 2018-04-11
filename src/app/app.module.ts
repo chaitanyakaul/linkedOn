@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import {AppRoutingModule} from './app.routing';
 
 
 @NgModule({
@@ -12,7 +11,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
     UserDashboardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
