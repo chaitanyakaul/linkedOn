@@ -5,11 +5,11 @@ import mongoose from 'mongoose';
 import User from '../models/user.server.model';
 
 export const getUsers = (req,res) => {
-  User.find().exec((err,todos) => {
+  User.find().exec((err,users) => {
     if(err){
       return res.json({'success':false,'message':'Some Error'});
     }
-    return res.json({'success':true,'message':'Users fetched successfully',todos});
+    return res.json({'success':true,'message':'Users fetched successfully',users});
   });
 }
 export const addUser = (req,res) => {
@@ -27,6 +27,7 @@ export const updateUser = (req,res) => {
       return res.json({'success':false,'message':'Some Error','error':err});
     }
     console.log(user);
+    console.log('hello bab');
     return res.json({'success':true,'message':'Updated successfully',user});
   })
 }

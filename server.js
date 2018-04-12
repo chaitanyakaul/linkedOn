@@ -3,6 +3,8 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+const SourceMapSupport = require('source-map-support');
+const mongoose = require('mongoose');
 
 // Get our API routes
 const api = require('./server/routes/user.server.route');
@@ -23,6 +25,13 @@ app.use('/api', api);
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
+
+// connect to database
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/mern-todo-app', {
+});
+// add Source Map Support
+SourceMapSupport.install();
 
 /**
  * Get port from environment and store in Express.
