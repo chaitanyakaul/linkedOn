@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import {AppRoutingModule} from './app.routing';
+import {UserService} from './user.service';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -11,9 +13,9 @@ import {AppRoutingModule} from './app.routing';
     UserDashboardComponent
   ],
   imports: [
-    BrowserModule, AppRoutingModule
+    BrowserModule, AppRoutingModule, HttpModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
