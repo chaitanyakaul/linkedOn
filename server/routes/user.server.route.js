@@ -4,6 +4,30 @@ const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 
 
+//import controller file
+import * as userController from '../controllers/user.server.controller';
+
+
+router.route('/')
+  .get(userController.getUsers)
+  .post(userController.addUser)
+  .put(userController.updateUser);
+
+
+router.route('/:id')
+  .get(userController.getUser)
+  .delete(userController.deleteUser);
+
+
+
+
+
+
+
+///**** Old Code
+
+
+
 // Connect
 const connection = (closure) => {
   return MongoClient.connect('mongodb://localhost:27017', (err, client) => {
